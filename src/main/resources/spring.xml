@@ -1,0 +1,62 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- bean definitions here -->
+
+<!--    <bean id="alien" class="org.barnawal.Alien" scope="prototype">-->
+
+<!--    </bean>-->
+
+
+<!--    <bean id="alien" class="org.barnawal.Alien">-->
+<!--        <property name="age" value="21"/>-->
+
+<!--        need to mention sequentially-->
+<!--        <constructor-arg value="21"/>-->
+<!--        <constructor-arg ref="lap1"/>-->
+
+<!--        If not sequentially but when we have different data type-->
+<!--        <constructor-arg type="org.barnawal.Laptop" ref="lap1"/>-->
+<!--        <constructor-arg type="int" value="21"/>-->
+
+<!--        when we have same datatype-->
+<!--        <constructor-arg index="0" value="21"/>-->
+<!--        <constructor-arg index="1" ref="lap1"/>-->
+
+
+<!--        <property name="age" value="21"/>-->
+<!--        <property name="com" ref="lap1"/>-->
+
+<!--    </bean>-->
+
+<!--    <bean id="alien" class="org.barnawal.Alien" autowire="byName">-->
+
+<!--        <property name="age" value="21"/>-->
+<!--&lt;!&ndash;        not need if we use autowire&ndash;&gt;-->
+<!--&lt;!&ndash;        <property name="com" ref="lap1"/>&ndash;&gt;-->
+
+<!--    </bean>-->
+
+    <bean id="alien" class="org.barnawal.Alien" autowire="byType">
+
+        <property name="age" value="21"/>
+<!--        Inner bean-->
+        <property name="com">
+            <bean id="com1" class="org.barnawal.Desktop" primary="true" lazy-init="true">
+            </bean>
+        </property>
+
+    </bean>
+
+<!--    if we use autowire then we need to specify id with same variable name-->
+<!--    <bean id="com" class="org.barnawal.Laptop">-->
+
+<!--    </bean>-->
+
+<!--    <bean id="com1" class="org.barnawal.Desktop" primary="true" lazy-init="true">-->
+
+<!--    </bean>-->
+
+</beans>
